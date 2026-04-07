@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #060608;
+  --bg-card: #0d0d12;
+  --bg-elevated: #121218;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-bright: rgba(255, 255, 255, 0.14);
+  --text: #f0f0f5;
+  --text-muted: rgba(240, 240, 245, 0.45);
+  --text-subtle: rgba(240, 240, 245, 0.25);
+  --accent: #e8ff47;
+  --accent-dim: rgba(232, 255, 71, 0.12);
+  --accent-glow: rgba(232, 255, 71, 0.25);
+  --cyan: #00d4c8;
+  --cyan-dim: rgba(0, 212, 200, 0.1);
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Epilogue", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ─── Noise grain overlay ───────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* ─── Typography ────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* ─── Grid lines ────────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── Ticker animation ──────────────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ─── Fade-up animation ─────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeUp {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ─── Glow pulse ────────────────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+.glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+
+/* ─── Card hover lift ───────────────────────────────── */
+.card-hover {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-bright);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px var(--border-bright);
+}
+
+/* ─── Accent button ─────────────────────────────────── */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #060608;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 13px 26px;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+.btn-accent:hover {
+  background: #f5ff6e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 12px 26px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--border-bright);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+/* ─── Section label ─────────────────────────────────── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ─── Stat counter ──────────────────────────────────── */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.9;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Hero display ──────────────────────────────────── */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 160px);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ─── Divider ───────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ─── Tag chip ──────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  border: 1px solid rgba(0, 212, 200, 0.2);
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Highlight ─────────────────────────────────────── */
+.text-accent { color: var(--accent); }
+.text-cyan   { color: var(--cyan); }
+.text-muted  { color: var(--text-muted); }
+
+/* ─── Container ─────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 768px) {
+  .container { padding: 0 48px; }
+}
+@media (min-width: 1024px) {
+  .container { padding: 0 64px; }
+}
+
+/* ─── Page transition ────────────────────────────────── */
+main > * {
+  animation: pageFadeIn 0.4s ease both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Global responsive ──────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: clamp(56px, 18vw, 100px) !important;
+  }
+  .btn-accent,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .stat-number {
+    font-size: clamp(40px, 12vw, 64px) !important;
+  }
+}
+
+/* ─── Details/Summary (FAQ) ──────────────────────────── */
+details summary { cursor: pointer; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary span:last-child::before { content: "−"; }
+
+/* ─── Clip-path btn full-width fix ───────────────────── */
+.btn-accent[style*="width: 100%"] {
+  clip-path: none !important;
+}
