@@ -10,10 +10,10 @@ export const meta: MetaFunction = () => [
 ];
 
 const team = [
-  { name: "Adaeze Okonkwo",  role: "Co-founder & CTO",         mono: "Backend · Architecture" },
-  { name: "Emeka Nwosu",     role: "Co-founder & CEO",          mono: "Strategy · Business Dev" },
+  { name: "Kelechi Joseph",  role: "Co-founder & CTO",          mono: "Backend · Architecture" },
+  { name: "Caleb Egbuta",    role: "Co-founder & CEO",          mono: "Strategy · Business Dev" },
   { name: "Chidi Eze",       role: "Lead Frontend Engineer",    mono: "React · TypeScript" },
-  { name: "Fatima Al-Hassan", role: "DevOps & Infrastructure",  mono: "K8s · Terraform · GH Actions" },
+  { name: "Praise Karachi",  role: "DevOps & Infrastructure",   mono: "K8s · Terraform · GH Actions" },
   { name: "Seun Adeyemi",    role: "Mobile Engineer",           mono: ".NET MAUI · React Native" },
   { name: "Taiwo Bello",     role: "AI & Data Engineer",        mono: "Python · ML · PostgreSQL" },
 ];
