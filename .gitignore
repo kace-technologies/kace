@@ -1,61 +1,9 @@
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
-
-# Bun
-bun.lockb
-~/.bun/
-
-# Build outputs
-dist/
-.next/
-.output/
-.vinxi/
-.turbo/
-*.tsbuildinfo
-.react-router/
-
-# Drizzle
-migrations/
-
-# Coverage
-coverage/
-*.lcov
-
-# Env files — never commit real secrets
-.env
-.env.local
-.env.*.local
-# Committed safely — example only, no real values
-!.env.example
-
-# SQLite local dev databases
-*.db
-*.db-shm
-*.db-wal
-
-# Fumadocs generated source
-.source/
-
-# OS
 .DS_Store
-Thumbs.db
+/node_modules/
 
-# Editor
-.idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+# React Router
+/.react-router/
+/build/
 
-# Logs
-*.log
-npm-debug.log*
-bun-error.log
-
-# Railway
-.railway/
+# Local Netlify folder
+.netlify

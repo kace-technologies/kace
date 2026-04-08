@@ -1,5 +1,9 @@
 import { Link } from "react-router";
-import { Github, Linkedin, Twitter } from "lucide-react";
+/* import github from "../../public/github.svg";
+import facebook from "../../public/facebook.svg";
+import instagram from "../../public/instagram.svg";
+import x from "../../public/x.svg"; */
+import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const footerLinks = {
   Services: [
@@ -56,7 +60,7 @@ export default function Footer() {
               Software development and consulting agency. Abuja, Nigeria. Building systems that scale.
             </p>
             <div style={{ display: "flex", gap: "10px" }}>
-              {[Github, Linkedin, Twitter].map((Icon, i) => (
+              {[Github, Linkedin, Twitter, Instagram].map((Icon, i) => (
                 <a key={i} href="#" style={{
                   width: "34px", height: "34px",
                   border: "1px solid var(--border)",
@@ -68,6 +72,7 @@ export default function Footer() {
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
                 >
                   <Icon size={13} />
+                  {/* <img src={Icon} alt="social" style={{ width: "13px", height: "13px" }} /> */}
                 </a>
               ))}
             </div>
