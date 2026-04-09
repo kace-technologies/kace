@@ -67,7 +67,7 @@ export default function Hero() {
           <span className="tag">Software Development & Consulting</span>
         </div>
 
-        <h1 className="hero-title animate-fadeUp delay-300" style={{ marginTop: "clamp(32px, 6vw, 64px)" }}>
+        <h1 className="hero-title animate-fadeUp delay-300">
           <span style={{ display: "block" }}>We Build</span>
           <span style={{ display: "block", color: "var(--accent)" }}>Systems</span>
           <span style={{ display: "block" }}>That Scale</span>
