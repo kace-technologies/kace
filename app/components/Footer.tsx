@@ -3,11 +3,11 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const footerLinks = {
   Services: [
-    { label: "Web Engineering",      to: "/services" },
-    { label: "Mobile Development",   to: "/services" },
-    { label: "Cloud & DevOps",       to: "/services" },
-    { label: "AI & Data",            to: "/services" },
-    { label: "Consulting",           to: "/services" },
+    { label: "Web Engineering",      to: "/services/web-engineering" },
+    { label: "Mobile Development",   to: "/services/mobile-development" },
+    { label: "Cloud & DevOps",       to: "/services/cloud-devops" },
+    { label: "AI & Data",            to: "/services/ai-data-systems" },
+    { label: "Consulting",           to: "/services/technical-consulting" },
   ],
   Company: [
     { label: "About",    to: "/about" },
