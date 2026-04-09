@@ -1,8 +1,4 @@
 import { Link } from "react-router";
-/* import github from "../../public/github.svg";
-import facebook from "../../public/facebook.svg";
-import instagram from "../../public/instagram.svg";
-import x from "../../public/x.svg"; */
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const footerLinks = {
@@ -20,9 +16,9 @@ const footerLinks = {
     { label: "Contact",  to: "/contact" },
   ],
   Legal: [
-    { label: "Privacy Policy",   to: "/" },
-    { label: "Terms of Service", to: "/" },
-    { label: "Cookie Policy",    to: "/" },
+    { label: "Privacy Policy",   to: "/privacy" },
+    { label: "Terms of Service", to: "/terms" },
+    { label: "Cookie Policy",    to: "/cookies" },
   ],
 };
 
